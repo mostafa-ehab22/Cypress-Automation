@@ -30,6 +30,7 @@ It covers common user flows like adding items to the cart, managing favorites, a
    Confirms backend returns `422` status when adding the same favorite twice and verifies error message.
 
 ## 📂 Folder Structure
+```
 cypress/
 ├── e2e/
 │ └── spec.cy.js          ⬅️ Test spec file with described tests
@@ -42,6 +43,7 @@ cypress/
 cypress.config.js
 package.json
 README.md
+```
 
 ## 🔧 Usage & Setup
 
