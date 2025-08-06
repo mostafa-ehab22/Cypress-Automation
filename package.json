@@ -1,0 +1,14 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "Software Testing Practice Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mostafa Ehab",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^14.5.2"
+  }
+}
