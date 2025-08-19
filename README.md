@@ -40,12 +40,12 @@ It covers common user flows like adding items to the cart, managing favorites, a
 ```
 cypress/
 ├── e2e/
-│ └── spec.cy.js          ⬅️ Test spec file with described tests
+│     └── spec.cy.js              ⬅️ Test spec file with described tests
 ├── support/
-│ └── PageObjectModel/
-│ └── helpers-pom.js      ⬅️ Helper class with reusable methods
+│     └── PageObjectModel/
+│           └── helpers-pom.js    ⬅️ Helper class with reusable methods
 ├── fixtures/
-│ └── testData.json       ⬅️ Test data 
+│     └── testData.json           ⬅️ Test data 
 .gitignore
 cypress.config.js
 package.json
