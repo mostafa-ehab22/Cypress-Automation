@@ -10,6 +10,7 @@ class HelperFunctions {
     cy.visit("https://practicesoftwaretesting.com/"); // Open Product page
     cy.get(".card-img-top").first().click(); // Click on first Product
     cy.get("#btn-add-to-cart").click(); // Add to cart
+    cy.wait(3000);
   }
 
   addFirstItemToFavorites() {
@@ -23,10 +24,12 @@ class HelperFunctions {
 
   addToCart() {
     cy.get("#btn-add-to-cart").click();
+    cy.wait(3000);
   }
 
   goToCart() {
     cy.get("a[data-test='nav-cart']").click({ force: true });
+    cy.wait(1000);
   }
 
   deleteItem() {

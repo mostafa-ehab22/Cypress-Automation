@@ -16,6 +16,8 @@ describe("Add to Cart", () => {
     cy.get(".card-img-top").last().should("be.visible").click(); // Click on last Product
     helper.addToCart();
     helper.goToCart();
+    cy.get(".quantity").eq(0).should("have.value", "1"); // Get first product's quantity entry field
+    cy.get(".quantity").eq(1).should("have.value", "1"); // Get second product's quantity entry field
   });
 
   it("[3] Verify adding item to favorites list", () => {
@@ -53,5 +55,27 @@ describe("Add to Cart", () => {
 
     // Delete item from favorites list
     helper.deleteItem();
+  });
+
+  it.only("[5] Verify price calculation of 2 different products is correct", () => {
+    helper.addFirstItemToCart();
+    cy.get(".st3").first().click({ force: true }); // Go back to product page
+    cy.get(".card-img-top").last().should("be.visible").click(); // Click on last Product
+    helper.addToCart();
+    helper.goToCart();
+
+    // Extracting prices of the 2 products & their total
+    cy.get('[data-test="product-price"]').eq(0).invoke("text").as("price1");
+    cy.get('[data-test="product-price"]').eq(1).invoke("text").as("price2");
+    cy.get('[data-test="cart-total"]').invoke("text").as("cartTotal");
+
+    // Parse prices from string => number
+    cy.then(function () {
+      const p1 = parseFloat(this.price1.replace("$", ""));
+      const p2 = parseFloat(this.price2.replace("$", ""));
+      const total = parseFloat(this.cartTotal.replace("$", ""));
+      // Assert displayed cart total equals calculated total
+      expect(total).to.eq(p1 + p2);
+    });
   });
 });
