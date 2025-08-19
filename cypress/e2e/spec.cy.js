@@ -64,7 +64,7 @@ describe("Add to Cart", () => {
     helper.deleteItem();
   });
 
-  it.only("[5] Verify price calculation of 2 different products is correct", () => {
+  it("[5] Verify price calculation of 2 different products is correct", () => {
     helper.addFirstItemToCart();
     cy.get(".st3").first().click({ force: true }); // Go back to product page
     cy.get(".card-img-top").last().should("be.visible").click(); // Click on last Product
@@ -84,5 +84,20 @@ describe("Add to Cart", () => {
       // Assert displayed cart total equals calculated total
       expect(total).to.eq(p1 + p2);
     });
+  });
+
+  it.only("[5] Verify checking out process using cash on delivery is successful", () => {
+    helper.login();
+    helper.addFirstItemToCart();
+    helper.goToCart();
+    cy.get("[data-test='proceed-1']").click(); // Click first "Proceed to checkout" button
+    cy.get("[data-test='proceed-2']").click(); // Click second "Proceed to checkout" button
+    cy.get("[data-test='proceed-3']").click(); // Click third "Proceed to checkout" button
+    // Selecting payment method
+    cy.get("select#payment-method")
+      .select("Cash on Delivery") // Select "Cash on Delivery" option
+      .should("have.value", "cash-on-delivery"); // assertion after action
+
+    cy.get("[data-test='finish']").click(); // Click "Confirm" button
   });
 });

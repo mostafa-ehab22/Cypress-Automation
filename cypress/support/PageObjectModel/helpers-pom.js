@@ -1,9 +1,11 @@
 class HelperFunctions {
   login() {
-    cy.get("[data-test='nav-sign-in']").click();
+    cy.visit(globalThis.testData.homePage); // Open Product page
+    cy.get("[data-test='nav-sign-in']").click(); // Click on "Sign in" from navigation bar
     cy.get("#email").type(globalThis.testData.login.email);
     cy.get("#password").type(globalThis.testData.login.password);
     cy.get(".btnSubmit").click();
+    cy.wait(3000);
   }
 
   addFirstItemToCart() {
