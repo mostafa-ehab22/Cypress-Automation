@@ -4,6 +4,13 @@ const helper = new HelperFunctions();
 
 ////////////////////////////////////////! Test Automation Cases //////////////////////////////////////////////////////
 describe("Add to Cart", () => {
+  // Load fixtures => Runs ONCE before test cases
+  before(() => {
+    cy.fixture("testData").then(function (data) {
+      globalThis.testData = data;
+    });
+  });
+
   it("[1] Verify adding single item to cart", () => {
     helper.addFirstItemToCart(); // Add first product to cart
     helper.goToCart(); // Go to cart

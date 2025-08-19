@@ -1,20 +1,20 @@
 class HelperFunctions {
   login() {
     cy.get("[data-test='nav-sign-in']").click();
-    cy.get("#email").type("hello@gmail.com");
-    cy.get("#password").type("@CorrectPassword123");
+    cy.get("#email").type(globalThis.testData.login.email);
+    cy.get("#password").type(globalThis.testData.login.password);
     cy.get(".btnSubmit").click();
   }
 
   addFirstItemToCart() {
-    cy.visit("https://practicesoftwaretesting.com/"); // Open Product page
+    cy.visit(globalThis.testData.homePage); // Open Product page
     cy.get(".card-img-top").first().click(); // Click on first Product
     cy.get("#btn-add-to-cart").click(); // Add to cart
     cy.wait(3000);
   }
 
   addFirstItemToFavorites() {
-    cy.visit("https://practicesoftwaretesting.com/"); // Open Product page
+    cy.visit(globalThis.testData.homePage); // Open Product page
     this.login();
     cy.url().should("not.include", "/auth/login"); // Ensure login was completed
     cy.get("[data-test='nav-home']").click(); // Click on Home from navigation tab
