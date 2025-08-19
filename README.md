@@ -18,16 +18,23 @@ It covers common user flows like adding items to the cart, managing favorites, a
 ## ⚙️ Features Tested
 
 1. 🛒 **Add single item to cart**  
-   Verifies item quantity in cart is correct.
+   Verifies item quantity in cart is correct.  
 
 2. 🛍️ **Add multiple different items to cart**  
-   Ensures cart counter reflects multiple products correctly.
+   Ensures cart counter reflects multiple products correctly.  
 
 3. ⭐ **Add item to favorites list**  
-   Validates item appears in favorites and allows deletion.
+   Validates item appears in favorites and allows deletion.  
 
 4. 🚫 **Prevent duplicate favorites**  
-   Confirms backend returns `422` status when adding the same favorite twice and verifies error message.
+   Confirms backend returns `422` status when adding the same favorite twice and verifies error message.  
+
+5. 💰 **Verify price calculation for multiple products**  
+   Ensures displayed cart total equals the sum of individual product prices.  
+
+6. 💳 **Checkout with Cash on Delivery**  
+   Validates end-to-end checkout flow by selecting `Cash on Delivery` as payment method and confirming successful order placement.  
+
 
 ## 📂 Folder Structure
 ```
@@ -38,7 +45,7 @@ cypress/
 │ └── PageObjectModel/
 │ └── helpers-pom.js      ⬅️ Helper class with reusable methods
 ├── fixtures/
-│ └── example.json        ⬅️ Test data (Optional)
+│ └── testData.json       ⬅️ Test data 
 .gitignore
 cypress.config.js
 package.json
@@ -72,7 +79,7 @@ npx cypress run
 ```
 
 ---
-### 🧑‍💻 How It Works — Key Code Snippets
+### 🧑‍💻 Key Code Snippets
 
 ```js
 // Using the HelperFunctions class
