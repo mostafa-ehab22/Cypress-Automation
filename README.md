@@ -33,7 +33,16 @@ It covers common user flows like adding items to the cart, managing favorites, a
    Ensures displayed cart total equals the sum of individual product prices.  
 
 6. 💳 **Checkout with Cash on Delivery**  
-   Validates end-to-end checkout flow by selecting `Cash on Delivery` as payment method and confirming successful order placement.  
+   Validates end-to-end checkout flow by selecting `Cash on Delivery` as payment method and confirming successful order placement.
+
+7. 🔨 **Filter by category (Hammer)**  
+   Confirms applying the `Hammer` filter shows only relevant products.  
+
+8. 🔍 **Search functionality**  
+   Ensures search results display products matching the search keyword.  
+
+9. 🏷️ **Discount on Tool & Rental Bundle**  
+   Test validates a **20% discount** is applied (intentionally set higher than actual to produce a controlled failure).  
 
 
 ## 📂 Folder Structure
