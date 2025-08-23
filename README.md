@@ -42,8 +42,8 @@ It covers common user flows like adding items to the cart, managing favorites, a
    Ensures search results display products matching the search keyword.  
 
 9. 🏷️ **Discount on Tool & Rental Bundle**  
-   Test validates a **20% discount** is applied (intentionally set higher than actual to produce a controlled failure).  
-
+   Test validates a **20% discount** is applied (intentionally set higher than actual to demonstrate failure reporting and debugging workflows).
+   
 
 ## 📂 Folder Structure
 ```
