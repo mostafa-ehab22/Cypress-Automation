@@ -11,6 +11,12 @@ describe("Add to Cart", () => {
     });
   });
 
+  // Clear cookies & local storage to isolate tests
+  afterEach(() => {
+    cy.clearCookies();
+    cy.clearLocalStorage();
+  });
+
   it("[1] Verify adding single item to cart", () => {
     helper.addFirstItemToCart(); // Add first product to cart
     helper.goToCart(); // Go to cart
@@ -86,21 +92,6 @@ describe("Add to Cart", () => {
     });
   });
 
-  it.only("[5] Verify checking out process using cash on delivery is successful", () => {
-    helper.login();
-    helper.addFirstItemToCart();
-    helper.goToCart();
-    cy.get("[data-test='proceed-1']").click(); // Click first "Proceed to checkout" button
-    cy.get("[data-test='proceed-2']").click(); // Click second "Proceed to checkout" button
-    cy.get("[data-test='proceed-3']").click(); // Click third "Proceed to checkout" button
-    // Selecting payment method
-    cy.get("select#payment-method")
-      .select("Cash on Delivery") // Select "Cash on Delivery" option
-      .should("have.value", "cash-on-delivery"); // assertion after action
-
-    cy.get("[data-test='finish']").click(); // Click "Confirm" button
-  });
-
   it("[6] Verify checking out process using cash on delivery is successful", () => {
     helper.login();
     helper.addFirstItemToCart();
@@ -159,7 +150,7 @@ describe("Add to Cart", () => {
       });
   });
 
-  it.only("[9] Verify 20% Discount for tool & rental bundle is applied", () => {
+  it("[9] Verify 20% Discount for tool & rental bundle is applied", () => {
     helper.addFirstItemToCart();
 
     cy.get('[data-test="nav-categories"]', { timeout: 2000 }).click(); // Click on 'Categories' dropdown
@@ -182,7 +173,7 @@ describe("Add to Cart", () => {
       const total = parseFloat(this.cartTotal.replace("$", ""));
 
       // Calculate the total and round it to 2 decimal places
-      const calculatedTotal = parseFloat(((p1 + p2) * 0.2).toFixed(2));
+      const calculatedTotal = parseFloat(((p1 + p2) * 0.8).toFixed(2)); // Apply 20% Discount
 
       // Assert Displayed cart total = Calculated total with applied 20% Discount
       expect(total).to.eq(calculatedTotal);
