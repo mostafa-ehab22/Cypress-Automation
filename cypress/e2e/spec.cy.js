@@ -100,7 +100,7 @@ describe("Add to Cart", () => {
 
     cy.get("[data-test='finish']").click(); // Click "Confirm" button
   });
-  
+
   it("[6] Verify checking out process using cash on delivery is successful", () => {
     helper.login();
     helper.addFirstItemToCart();
@@ -159,7 +159,7 @@ describe("Add to Cart", () => {
       });
   });
 
-  it.only("[8] Verify 20% Discount for tool & rental bundle is applied", () => {
+  it.only("[9] Verify 20% Discount for tool & rental bundle is applied", () => {
     helper.addFirstItemToCart();
 
     cy.get('[data-test="nav-categories"]', { timeout: 2000 }).click(); // Click on 'Categories' dropdown
