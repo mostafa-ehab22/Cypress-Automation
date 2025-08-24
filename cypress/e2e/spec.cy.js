@@ -100,4 +100,92 @@ describe("Add to Cart", () => {
 
     cy.get("[data-test='finish']").click(); // Click "Confirm" button
   });
+  
+  it("[6] Verify checking out process using cash on delivery is successful", () => {
+    helper.login();
+    helper.addFirstItemToCart();
+    helper.goToCart();
+    cy.get("[data-test='proceed-1']").click(); // Click first "Proceed to checkout" button
+    cy.get("[data-test='proceed-2']").click(); // Click second "Proceed to checkout" button
+    cy.get("[data-test='proceed-3']").click(); // Click third "Proceed to checkout" button
+    // Selecting payment method
+    cy.get("select#payment-method")
+      .select("Cash on Delivery") // Select "Cash on Delivery" option
+      .should("have.value", "cash-on-delivery"); // assertion after action
+
+    cy.get("[data-test='finish']").click(); // Click "Confirm" button
+  });
+
+  it("[7] Verify Hammer filter shows correct products by selecting one randomly", () => {
+    // Step 1: Apply Hammer filter
+    cy.contains("label", "Hammer")
+      .find('input[type="checkbox"]', { timeout: 3000 })
+      .check();
+
+    cy.wait(1500);
+
+    // Step 2: Get all the filtered product links
+    cy.get(".col-md-9 .container a")
+      .should("have.length.greaterThan", 0) // Ensures products are loaded
+      .then(($products) => {
+        // Step 3: Pick a random product from the filtered results
+        const randomIndex = Cypress._.random(0, $products.length - 1);
+        const randomProductLink = $products[randomIndex];
+        cy.log(`Testing product at index ${randomIndex}`);
+
+        // Step 4: Click the random product.
+        cy.wrap(randomProductLink).click();
+
+        // Step 5: Assert category tag contains Hammer
+        cy.get("span[aria-label='category']").should("contain.text", "Hammer");
+      });
+  });
+
+  it("[8] Verify Search functionality works properly", () => {
+    // Step 1: Type 'Wood' in search bar
+    cy.get("input#search-query").type("Wood");
+    cy.get("button[data-test=search-submit]", { timeout: 3000 }).click();
+    cy.wait(1500);
+
+    // Step 2: Get all product names and assert each contains 'Wood'
+    cy.get("h5[data-test=product-name]")
+      .should("have.length.greaterThan", 0) // Make sure results exist
+      .each(($products) => {
+        cy.wrap($products)
+          .invoke("text")
+          .then((text) => {
+            expect(text.toLowerCase().trim()).to.include("wood");
+          });
+      });
+  });
+
+  it.only("[8] Verify 20% Discount for tool & rental bundle is applied", () => {
+    helper.addFirstItemToCart();
+
+    cy.get('[data-test="nav-categories"]', { timeout: 2000 }).click(); // Click on 'Categories' dropdown
+    cy.wait(1000);
+    cy.contains("Rentals").click(); // Click on 'Rentals'
+
+    cy.get(".card-body").eq(0).click();
+    helper.addToCart();
+    helper.goToCart();
+
+    // Extracting prices of the 2 products & their total
+    cy.get('[data-test="product-price"]').eq(0).invoke("text").as("price1");
+    cy.get('[data-test="product-price"]').eq(1).invoke("text").as("price2");
+    cy.get('[data-test="cart-total"]').invoke("text").as("cartTotal");
+
+    // Parse prices from string => number
+    cy.then(function () {
+      const p1 = parseFloat(this.price1.replace("$", ""));
+      const p2 = parseFloat(this.price2.replace("$", ""));
+      const total = parseFloat(this.cartTotal.replace("$", ""));
+
+      // Calculate the total and round it to 2 decimal places
+      const calculatedTotal = parseFloat(((p1 + p2) * 0.2).toFixed(2));
+
+      // Assert Displayed cart total = Calculated total with applied 20% Discount
+      expect(total).to.eq(calculatedTotal);
+    });
+  });
 });
