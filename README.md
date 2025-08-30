@@ -3,7 +3,7 @@
 
 <div align=center>
     <span>🍿</span>
-<a href="https://www.youtube.com/watch?v=1tqYgZAPzo0" alt="Video Demo">Video Demo</a>
+<a href="https://youtu.be/jHav5NkRigc" alt="Video Demo">Video Demo</a>
     <span>🍿</span>
 </div>
 
