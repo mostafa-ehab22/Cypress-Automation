@@ -1,4 +1,4 @@
-<h1 align=center>Cypress Ecommerce Automation</h1>
+<h1 align=center>Cypress Automation</h1>
 <br>
 
 <div align=center>
