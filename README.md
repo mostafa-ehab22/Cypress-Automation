@@ -14,8 +14,7 @@ It covers common user flows like adding items to the cart, managing favorites, a
 
 
 ## 🎓 Internship Context
-📌 *Developed as part of my Software Testing Internship at Brightskies (2025)* <br><br>
-During the internship, I contributed to both **manual testing and automation**:
+*Developed as part of my **Software Testing Internship at Brightskies (2025)**. During the internship, I contributed to both **manual testing and automation**:*
 
 - 📝 **Manual Testing with Qase**  
   Designed and executed manual test cases to validate user flows, edge cases, and UI/UX consistency.  
