@@ -1,7 +1,32 @@
+<h1 align=center>Cypress Ecommerce Automation</h1>
+<br>
+
+<div align=center>
+    <span>🍿</span>
+<a href="https://www.youtube.com/watch?v=1tqYgZAPzo0" alt="Video Demo">Video Demo</a>
+    <span>🍿</span>
+</div>
+
 # 🎯 Project Overview
 
 **Cypress automated test suite** for an e-commerce website, built using the **Page Object Model (POM)** design pattern for clean, reusable, and maintainable test code.
-It covers common user flows like adding items to the cart, managing favorites, and verifying UI/API behavior with real assertions.
+It covers common user flows like adding items to the cart, managing favorites, and verifying UI/API behavior with real assertions. <br>
+
+
+## 🎓 Internship Context
+📌 *Developed as part of my Software Testing Internship at Brightskies (2025)* <br><br>
+During the internship, I contributed to both **manual testing and automation**:
+
+- 📝 **Manual Testing with Qase**  
+  Designed and executed manual test cases to validate user flows, edge cases, and UI/UX consistency.  
+  Documented results, tracked bugs, and provided actionable feedback to improve product quality.  
+
+- 🤖 **Automation Testing with Cypress**  
+  Built an automated test suite for core e-commerce features using Cypress and the **Page Object Model (POM)** design pattern, ensuring clean, reusable, and maintainable test code.  
+
+This hybrid approach showcased the value of combining **manual exploratory testing** with **automated regression coverage** to deliver reliable, high-quality software.
+
+
 
 ## 🧱 Architecture & Design
 
