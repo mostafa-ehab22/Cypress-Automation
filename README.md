@@ -132,12 +132,11 @@ describe("Add to Cart", () => {
       .find('input[type="checkbox"]', { timeout: 3000 })
       .check();
 
-    cy.wait(1500);
-
     // Step 2: Get all the filtered product links
     cy.get(".col-md-9 .container a")
       .should("have.length.greaterThan", 0) // Ensures products are loaded
       .then(($products) => {
+
         // Step 3: Pick a random product from the filtered results
         const randomIndex = Cypress._.random(0, $products.length - 1);
         const randomProductLink = $products[randomIndex];
