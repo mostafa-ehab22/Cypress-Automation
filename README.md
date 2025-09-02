@@ -132,7 +132,7 @@ describe("Add to Cart", () => {
   });
 
   //////// Advanced Cypress techniques with random selection ////////
-  it("[7] Verify Hammer filter shows correct products by selecting one randomly", () => {
+  it("[7] Verify 'Hammer' filter shows correct products by selecting one randomly", () => {
     // Step 1: Apply Hammer filter
     cy.contains("label", "Hammer")
       .find('input[type="checkbox"]', { timeout: 3000 })
