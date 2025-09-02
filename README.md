@@ -28,16 +28,15 @@ This hybrid approach showcased the value of combining **manual exploratory testi
 
 
 ## 🧱 Architecture & Design
-
+- **Cypress:**  
+  Utilized for browser automation, network interception, and rich testing capabilities.
+  
+- **Fixtures & Intercepts:**  
+  Uses Cypress intercepts for monitoring API calls (e.g. adding favorites) to assert backend responses.
+    
 - **Page Object Model (POM) Design Pattern:**  
   All page interactions and reusable methods are encapsulated inside helper classes (`helpers-pom.js`).  
   This keeps test specs clean and focused only on behavior and assertions.
-
-- **Cypress:**  
-  Utilized for browser automation, network interception, and rich testing capabilities.
-
-- **Fixtures & Intercepts:**  
-  Uses Cypress intercepts for monitoring API calls (e.g. adding favorites) to assert backend responses.
 
 ## ⚙️ Features Tested
 
