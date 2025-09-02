@@ -120,14 +120,14 @@ import HelperFunctions from "../support/PageObjectModel/helpers-pom";
 const helper = new HelperFunctions();
 
 describe("Add to Cart", () => {
-  // Simple helper method usage
+  //////// Simple helper method usage ////////
   it("[1] Verify adding single item to cart", () => {
     helper.addFirstItemToCart();
     helper.goToCart();
     cy.get("input[data-test='product-quantity']").should("have.value", "1");
   });
 
-  // Advanced Cypress techniques with random selection
+  //////// Advanced Cypress techniques with random selection ////////
   it("[7] Verify Hammer filter shows correct products by selecting one randomly", () => {
     // Step 1: Apply Hammer filter
     cy.contains("label", "Hammer")
