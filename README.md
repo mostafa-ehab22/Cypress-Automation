@@ -69,7 +69,8 @@ This hybrid approach showcased the value of combining **manual exploratory testi
    Ensures search results display products matching the search keyword.  
 
 9. 🏷️❌ **Discount on Tool & Rental Bundle**  
-   Test validates a **20% discount** is applied *(intentionally set higher than actual to demonstrate failure reporting and debugging workflows using cypress)*.
+   Test validates a **20% discount** is applied. <br>
+   *(intentionally set higher than actual to demonstrate failure reporting and debugging workflows using cypress)*.
    
 
 ## 📂 Folder Structure
