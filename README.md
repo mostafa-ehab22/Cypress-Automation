@@ -119,6 +119,7 @@ npx cypress run
 import HelperFunctions from "../support/PageObjectModel/helpers-pom";
 const helper = new HelperFunctions();
 
+
 describe("Add to Cart", () => {
   //////// Simple helper method usage ////////
   it("[1] Verify adding single item to cart", () => {
