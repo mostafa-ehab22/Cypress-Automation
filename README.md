@@ -124,7 +124,7 @@ import HelperFunctions from "../support/PageObjectModel/helpers-pom";
 const helper = new HelperFunctions();
 
 
-describe("Add to Cart", () => {
+describe("Tool Shop Website", () => {
   //////// Simple helper method usage ////////
   it("[1] Verify adding single item to cart", () => {
     helper.addFirstItemToCart();
