@@ -115,7 +115,7 @@ npx cypress run
 ### 🧑‍💻 Key Code Snippets
 
 ```js
-// Using the HelperFunctions class
+// Using the HelperFunctions class => POM Design Pattern
 import HelperFunctions from "../support/PageObjectModel/helpers-pom";
 const helper = new HelperFunctions();
 
