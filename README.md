@@ -29,7 +29,7 @@ This hybrid approach showcased the value of combining **manual exploratory testi
 
 ## 🧱 Architecture & Design
 
-- **Page Object Model (POM):**  
+- **Page Object Model (POM) Design Pattern:**  
   All page interactions and reusable methods are encapsulated inside helper classes (`helpers-pom.js`).  
   This keeps test specs clean and focused only on behavior and assertions.
 
