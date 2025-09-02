@@ -32,7 +32,7 @@ This hybrid approach showcased the value of combining **manual exploratory testi
 - **Cypress:**  
   Utilized for browser automation, network interception, and rich testing capabilities.
   
-- **Page Object Model (POM) Design Pattern:**  
+- **Page Object Model *(POM)* Design Pattern:**  
   All page interactions and reusable methods are encapsulated inside helper classes (`helpers-pom.js`).  
   This keeps test specs clean and focused only on behavior and assertions.
 
