@@ -126,7 +126,33 @@ describe("Add to Cart", () => {
     cy.get("input[data-test='product-quantity']").should("have.value", "1");
   });
 
-  // Additional tests follow similar pattern...
+  it("[7] Verify Hammer filter shows correct products by selecting one randomly", () => {
+    // Step 1: Apply Hammer filter
+    cy.contains("label", "Hammer")
+      .find('input[type="checkbox"]', { timeout: 3000 })
+      .check();
+
+    cy.wait(1500);
+
+    // Step 2: Get all the filtered product links
+    cy.get(".col-md-9 .container a")
+      .should("have.length.greaterThan", 0) // Ensures products are loaded
+      .then(($products) => {
+        // Step 3: Pick a random product from the filtered results
+        const randomIndex = Cypress._.random(0, $products.length - 1);
+        const randomProductLink = $products[randomIndex];
+        cy.log(`Testing product at index ${randomIndex}`);
+
+        // Step 4: Click the random product
+        cy.wrap(randomProductLink).click();
+
+        // Step 5: Assert category tag contains Hammer
+        cy.get("span[aria-label='category']").should("contain.text", "Hammer");
+      });
+  });
+
+  // Additional test cases follow a similar approach...
+
 });
 ```
 
