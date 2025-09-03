@@ -7,7 +7,7 @@
     <span>🍿</span>
 </div>
 
-# 🎯 Project Overview
+## 🎯 Project Overview
 
 **Cypress automated test suite** for an e-commerce website, built using the **Page Object Model (POM)** design pattern for clean, reusable, and maintainable test code.
 It covers common user flows like adding items to the cart, managing favorites, and verifying UI/API behavior with real assertions. <br>
