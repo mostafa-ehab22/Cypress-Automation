@@ -63,7 +63,7 @@ This hybrid approach showcased the value of combining **manual exploratory testi
    Validates end-to-end checkout flow by selecting `Cash on Delivery` as payment method and confirming successful order placement.
 
 7. 🔨 **Filter by "Hammer" category**  
-   Confirms applying the `Hammer` filter shows only relevant products.  
+   Confirms applying the `Hammer` filter shows only relevant products by selecting one randomly.
 
 8. 🔍 **Search functionality**  
    Ensures search results display products matching the search keyword.  
