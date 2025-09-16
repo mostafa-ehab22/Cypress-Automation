@@ -109,10 +109,10 @@ Cypress-Automation/
 ## 🔧 Usage & Setup
 
 ### Prerequisites
-
-- Node.js installed (v14+ recommended)
-- npm or yarn
-
+```bash
+Node.js installed (v14+ recommended)
+npm or yarn
+```
 ### Installation
 
 ```bash
