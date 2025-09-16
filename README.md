@@ -45,7 +45,7 @@ Monitor and assert API calls *(e.g. adding favorites)* to validate backend respo
 
 ### Design Pattern Structure
 ```
-📁 Separation of Concerns
+Separation of Concerns
 ├── 🧪 Test Specs → Behavior & assertions only
 ├── 🔧 Page Objects → Reusable interaction methods  
 ├── 📋 Fixtures → Centralized test data
