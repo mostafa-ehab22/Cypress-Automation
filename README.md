@@ -8,10 +8,7 @@
 </div>
 
 ## 🎯 Project Overview
-
-**Cypress automated test suite** for an e-commerce website, built using the **Page Object Model (POM)** design pattern for clean, reusable, and maintainable test code.
-It covers common user flows like adding items to the cart, managing favorites, and verifying UI/API behavior with real assertions. <br>
-
+End-to-end automated Cypress test suite for e-commerce applications built with **Cypress** and the **Page Object Model (POM)** design pattern. Covers critical user journeys including cart management, favorites, checkout flows, and API validations with comprehensive assertions. <br>
 
 ## 🎓 Internship Context
 *Developed during my Software Testing Internship at Brightskies (2025), where I gained hands-on experience in both manual and automated testing methodologies:*
@@ -28,20 +25,37 @@ It covers common user flows like adding items to the cart, managing favorites, a
 
 *This project demonstrates the strategic value of combining manual exploratory testing with automated regression coverage to ensure comprehensive quality assurance.*
 
-## 🧱 Architecture & Design
+## 🏗️ Architecture & Design
 
-- **Cypress:**  
-  Utilized for browser automation, network interception, and rich testing capabilities.
-  
-- **Page Object Model (POM) Design Pattern:**  
-  All page interactions and reusable methods are encapsulated inside helper classes (`helpers-pom.js`).  
-  This keeps test specs clean and focused only on behavior and assertions.
+### Tech Stack
 
-- **Fixtures:**  
-  Centralized test data storage *(URLs, login credentials, user information)* kept separate from test logic.
+- Cypress - Modern browser automation with network interception and rich testing capabilities
+- JavaScript ES6+ - Clean, maintainable test code
+- Page Object Model (POM) - Scalable test architecture pattern
 
-- **Intercepts:**  
-  Monitor and assert API calls *(e.g. adding favorites)* to validate backend responses.
+### Core Components
+
+- **Page Object Model ```(helpers-pom.js)```:**<br>
+All page interactions and reusable methods encapsulated in helper classes.<br>
+Keeps test specs clean and focused only on behavior and assertions.
+- **Fixtures:**<br>
+Centralized test data storage *(URLs, login credentials, user information)* kept separate from test logic
+- **Intercepts:**<br>
+Monitor and assert API calls *(e.g. adding favorites)* to validate backend responses
+
+### Design Pattern Structure
+```
+📁 Separation of Concerns
+├── 🧪 Test Specs → Behavior & assertions only
+├── 🔧 Page Objects → Reusable interaction methods  
+├── 📋 Fixtures → Centralized test data
+└── 🌐 Intercepts → API monitoring & validation
+```
+### Benefits:
+
+- ✅ Maintainable - Changes in UI require updates in one place
+- ✅ Reusable - Methods shared across multiple test scenarios
+- ✅ Readable - Test specs focus on business logic, not implementation
 
 ## ⚙️ Features Tested
 
@@ -71,23 +85,25 @@ It covers common user flows like adding items to the cart, managing favorites, a
 
 9. 🏷️❌ **Discount on "Tool & Rental" Bundle**  
    Test validates a **20% discount** is applied. <br>
-   *(Intentionally set higher than actual to demonstrate failure reporting and debugging workflows using cypress)*
+   *(Intentional failure demo)*
    
 
-## 📂 Folder Structure
+## 📂 Project Structure
 ```
-cypress/
-├── e2e/
-│     └── spec.cy.js              ⬅️ Test spec file with described tests
-├── support/
-│     └── PageObjectModel/
-│           └── helpers-pom.js    ⬅️ Helper class with reusable methods
-├── fixtures/
-│     └── testData.json           ⬅️ Test data 
-.gitignore
-cypress.config.js
-package.json
-README.md
+Cypress-Automation/
+│
+├── 📁 cypress/
+│   ├── 📁 e2e/
+│   │   └── spec.cy.js                    ⬅️ Test specifications
+│   ├── 📁 support/
+│   │   └── 📁 PageObjectModel/
+│   │       └── helpers-pom.js            ⬅️ Reusable page methods
+│   └── 📁 fixtures/
+│       └── testData.json                 ⬅️ Test data & configurations
+│
+├── cypress.config.js                     ⬅️ Cypress configuration
+├── package.json                          ⬅️ Dependencies & scripts
+└── README.md                             ⬅️ Documentation
 ```
 
 ## 🔧 Usage & Setup
@@ -116,7 +132,6 @@ Or run headless tests:
 npx cypress run
 ```
 
----
 ## 💻 Code Highlights
 
 ### Page Object Model Implementation
@@ -136,21 +151,53 @@ describe("E-Commerce Test Suite", () => {
 ### Advanced Cypress Techniques
 ```js
 // Random product selection with dynamic assertions
-it("Validate filter accuracy with random selection", () => {
-  cy.contains("label", "Hammer")
-    .find('input[type="checkbox"]')
-    .check();
+it("[7] Verify Hammer filter shows correct products by selecting one randomly", () => {
+    // Step 1: Apply Hammer filter
+    cy.contains("label", "Hammer")
+      .find('input[type="checkbox"]', { timeout: 3000 })
+      .check();
 
-  cy.get(".col-md-9 .container a")
-    .should("have.length.greaterThan", 0)
-    .then(($products) => {
-      const randomIndex = Cypress._.random(0, $products.length - 1);
-      cy.wrap($products[randomIndex]).click();
-      cy.get("span[aria-label='category']").should("contain.text", "Hammer");
-    });
+    // Step 2: Get all the filtered product links
+    cy.get(".col-md-9 .container a")
+      .should("have.length.greaterThan", 0) // Ensures products are loaded
+      .then(($products) => {
+        // Step 3: Pick a random product from the filtered results
+        const randomIndex = Cypress._.random(0, $products.length - 1);
+        const randomProductLink = $products[randomIndex];
+        cy.log(`Testing product at index ${randomIndex}`);
+
+        // Step 4: Click the random product.
+        cy.wrap(randomProductLink).click();
+
+        // Step 5: Assert category tag contains Hammer
+        cy.get("span[aria-label='category']").should("contain.text", "Hammer");
+      });
+  });
+```
+### API Intercept & Validation
+```js
+// Duplicate prevention with comprehensive API validation
+it("[4] Verify an item already in favorites is not duplicated when added again", () => {
+  // Set up network intercept to capture the favorites API call
+  cy.intercept("POST", "**/favorites").as("addToFavorites");
+  
+  // Add item to favorites list for first time
+  helper.addFirstItemToFavorites();
+  
+  // Try to add the same item again -> should return 422 with duplicate message
+  cy.get("#btn-add-to-favorites").click();
+  cy.wait("@addToFavorites").then((interception) => {
+    expect(interception.response.statusCode).to.eq(422); // Should return 422 for duplicate
+    // More flexible assertion for the response body
+    expect(interception.response.body).to.have.property("message");
+    expect(interception.response.body.message).to.include("Duplicate");
+  });
+  
+  // Delete item from favorites list
+  helper.deleteItem();
 });
 ```
-
+---
 ### 🤝 Contribution
 Feel free to open issues or submit PRs for new test cases or improvements!
 This project is perfect for anyone wanting to learn Cypress best practices and POM design.
