@@ -14,18 +14,19 @@ It covers common user flows like adding items to the cart, managing favorites, a
 
 
 ## 🎓 Internship Context
-*Developed as part of my **Software Testing Internship at Brightskies (2025)**. During the internship, I contributed to both **manual testing and automation**:*
+*Developed during my Software Testing Internship at Brightskies (2025), where I gained hands-on experience in both manual and automated testing methodologies:*
 
-- 📝 **Manual Testing with Qase**  
-  Designed and executed manual test cases to validate user flows, edge cases, and UI/UX consistency.  
-  Documented results, tracked bugs, and provided actionable feedback to improve product quality.  
+### 📝 **Manual Testing with Qase**  
+- 📝 Designed and executed comprehensive test cases using Qase test management platform
+- 🔍 Performed exploratory testing to identify edge cases and UI/UX inconsistencies
+- 📊 Documented test results, tracked defects, and provided actionable feedback to development teams  
 
-- 🤖 **Automation Testing with Cypress**  
-  Built an automated test suite for core e-commerce features using Cypress and the **Page Object Model (POM)** design pattern, ensuring clean, reusable, and maintainable test code.  
+### 🤖 **Automation Testing with Cypress**  
+- 🤖 Built this automated test suite covering core e-commerce workflows
+- 🏗️ Implemented Page Object Model (POM) design pattern for maintainable, scalable test architecture
+- ⚡ Developed comprehensive test coverage with API intercepts and UI validations
 
-This hybrid approach showcased the value of combining **manual exploratory testing** with **automated regression coverage** to deliver reliable, high-quality software.
-
-
+*This project demonstrates the strategic value of combining manual exploratory testing with automated regression coverage to ensure comprehensive quality assurance.*
 
 ## 🧱 Architecture & Design
 
@@ -116,49 +117,37 @@ npx cypress run
 ```
 
 ---
-### 🧑‍💻 Key Code Snippets
+## 💻 Code Highlights
 
+### Page Object Model Implementation
 ```js
-// Using the HelperFunctions class => POM Design Pattern
+// Clean test specification using helper methods
 import HelperFunctions from "../support/PageObjectModel/helpers-pom";
 const helper = new HelperFunctions();
 
-
-describe("Tool Shop Website", () => {
-  //////// Simple helper method usage ////////
-  it("[1] Verify adding single item to cart", () => {
+describe("E-Commerce Test Suite", () => {
+  it("Verify cart functionality", () => {
     helper.addFirstItemToCart();
     helper.goToCart();
     cy.get("input[data-test='product-quantity']").should("have.value", "1");
   });
+});
+```
+### Advanced Cypress Techniques
+```js
+// Random product selection with dynamic assertions
+it("Validate filter accuracy with random selection", () => {
+  cy.contains("label", "Hammer")
+    .find('input[type="checkbox"]')
+    .check();
 
-  //////// Advanced Cypress techniques with random selection ////////
-  it("[7] Verify 'Hammer' filter shows correct products by selecting one randomly", () => {
-    // Step 1: Apply Hammer filter
-    cy.contains("label", "Hammer")
-      .find('input[type="checkbox"]', { timeout: 3000 })
-      .check();
-
-    // Step 2: Get all the filtered product links
-    cy.get(".col-md-9 .container a")
-      .should("have.length.greaterThan", 0) // Ensures products are loaded
-      .then(($products) => {
-
-        // Step 3: Pick a random product from the filtered results
-        const randomIndex = Cypress._.random(0, $products.length - 1);
-        const randomProductLink = $products[randomIndex];
-        cy.log(`Testing product at index ${randomIndex}`);
-
-        // Step 4: Click the random product
-        cy.wrap(randomProductLink).click();
-
-        // Step 5: Assert category tag contains Hammer
-        cy.get("span[aria-label='category']").should("contain.text", "Hammer");
-      });
-  });
-
-  // Additional test cases follow a similar approach...
-
+  cy.get(".col-md-9 .container a")
+    .should("have.length.greaterThan", 0)
+    .then(($products) => {
+      const randomIndex = Cypress._.random(0, $products.length - 1);
+      cy.wrap($products[randomIndex]).click();
+      cy.get("span[aria-label='category']").should("contain.text", "Hammer");
+    });
 });
 ```
 
