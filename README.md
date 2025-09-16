@@ -25,7 +25,7 @@ End-to-end automated Cypress test suite for e-commerce applications built with *
 
 *This project demonstrates the strategic value of combining manual exploratory testing with automated regression coverage to ensure comprehensive quality assurance.*
 
-## 🏗️ Architecture & Design
+## 🧱 Architecture & Design
 
 ### Tech Stack
 
