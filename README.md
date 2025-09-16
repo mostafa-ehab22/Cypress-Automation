@@ -84,7 +84,7 @@ Separation of Concerns
    Ensures search results display products matching the search keyword.  
 
 9. 🏷️❌ **Discount on "Tool & Rental" Bundle**  
-   Test validates a **20% discount** is applied. <br>
+   Test validates a **20% discount** is applied on checkout. <br>
    *(Intentional failure demo)*
    
 
