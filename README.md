@@ -8,7 +8,7 @@
 </div>
 
 ## 🎯 Project Overview
-End-to-end automated Cypress test suite for e-commerce applications built with **Cypress** and the **Page Object Model (POM)** design pattern. Covers critical user journeys including cart management, favorites, checkout flows, and API validations with comprehensive assertions. <br>
+End-to-end automated test suite for e-commerce applications built with **Cypress** and the **Page Object Model (POM)** design pattern. Covers critical user journeys including cart management, favorites, checkout flows, and API validations with comprehensive assertions. <br>
 
 ## 🎓 Internship Context
 *Developed during my Software Testing Internship at Brightskies (2025), where I gained hands-on experience in both manual and automated testing methodologies:*
