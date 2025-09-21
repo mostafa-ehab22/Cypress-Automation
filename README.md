@@ -144,7 +144,8 @@ describe("E-Commerce Test Suite", () => {
   it("[1] Verify adding single item to cart", () => {
     helper.addFirstItemToCart();
     helper.goToCart();
-    cy.get("input[data-test='product-quantity']").should("have.value", "1"); // Assert cart has quantity of 1
+    // Assert cart has quantity of 1
+    cy.get("input[data-test='product-quantity']").should("have.value", "1"); 
   });
 });
 ```
