@@ -92,7 +92,7 @@ Separation of Concerns
 
 ## 📂 Project Structure
 ```
-Cypress-Automation/
+📁 Cypress-Automation/
 │
 ├── 📁 cypress/
 │   ├── 📁 e2e/
