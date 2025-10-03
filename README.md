@@ -22,7 +22,7 @@ Developed during my **Software Testing Internship at Brightskies (2025)**, where
 
 ### 🤖 **Automation Testing**  
 - Built this **Cypress** automated test suite covering core e-commerce workflows
-- Implemented Page Object Model (POM) design pattern for maintainable, scalable test architecture
+- Implemented **Page Object Model (POM)** design pattern for maintainable, scalable test architecture
 - Developed comprehensive test coverage with API intercepts and UI validations
 
 *This project demonstrates strategic QA: manual testing for discovery, automation for efficiency.*
