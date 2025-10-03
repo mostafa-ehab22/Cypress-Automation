@@ -87,7 +87,7 @@ Separation of Concerns
 
 9. 🏷️❌ **Discount on "Tool & Rental" Bundle**  
    Test validates a **20% discount** is applied on checkout. <br>
-   *(Intentional failure demo)*
+   *(Intentionally failing to demonstrate bug detection and reporting capabilities)*
    
 
 ## 📂 Project Structure
