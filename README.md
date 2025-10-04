@@ -25,7 +25,7 @@ Developed during my **Software Testing Internship at Brightskies (2025)**, where
 - Implemented **Page Object Model (POM)** design pattern for maintainable, scalable test architecture
 - Developed comprehensive test coverage with API intercepts and UI validations
 
-*This project demonstrates strategic QA: manual testing for discovery, automation for efficiency.*
+*This project demonstrates strategic QA: exploratory testing for discovery, automated regression for efficiency.*
 
 ## 🧱 Architecture & Design
 
