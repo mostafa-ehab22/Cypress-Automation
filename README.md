@@ -105,7 +105,7 @@ Cypress-Automation/
 │
 ├── cypress.config.js                     ⬅️ Cypress configuration
 ├── package.json                          ⬅️ Dependencies & scripts
-└── README.md                             ⬅️ Documentation
+└── README.md                             
 ```
 
 ## 🔧 Usage & Setup
