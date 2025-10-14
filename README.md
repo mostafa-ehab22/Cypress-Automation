@@ -31,9 +31,9 @@ Developed during my **Software Testing Internship at Brightskies (2025)**, where
 
 ### Tech Stack
 
-- *Cypress* → Modern browser automation with network interception and rich testing capabilities
-- *JavaScript ES6+* → Clean, maintainable test code
-- *Page Object Model (POM)* → Scalable test architecture pattern
+- **Cypress** → Modern browser automation with network interception and rich testing capabilities
+- **JavaScript ES6+** → Clean, maintainable test code
+- **Page Object Model (POM)** → Scalable test architecture pattern
 
 ### Core Components
 
