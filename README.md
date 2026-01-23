@@ -8,8 +8,9 @@
 </div>
 
 ## 🎯 Project Overview
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black)
 ![Cypress](https://img.shields.io/badge/Cypress-17202C.svg?logo=cypress)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black) <br>
+<br>
 End-to-end automated test suite for e-commerce applications built with **Cypress** and the **Page Object Model (POM)** design pattern. Covers critical user journeys including cart management, favorites, checkout flows, and API validations with comprehensive assertions. <br>
 
 ## 🎓 Internship Context
