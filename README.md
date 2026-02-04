@@ -202,6 +202,6 @@ it("[4] Verify an item already in favorites is not duplicated when added again",
 });
 ```
 ---
-### 🤝 Contribution
+## 🤝 Contribution
 Feel free to open issues or submit PRs for new test cases or improvements!
 This project is perfect for anyone wanting to learn Cypress best practices and POM design.
