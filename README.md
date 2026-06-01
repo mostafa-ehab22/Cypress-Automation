@@ -27,7 +27,7 @@ Developed during my **Software Testing Internship at <a href="https://brightskie
 - Developed comprehensive test coverage with API intercepts and UI validations
 
 > [!IMPORTANT]
-> Manual exploratory testing surfaces what automation misses; regression automation enforces it efficiently at scale.
+> Manual exploratory testing surfaces what automation misses; regression automation enforces it at scale.
 
 ## 🧱 Architecture & Design
 
