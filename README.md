@@ -26,7 +26,8 @@ Developed during my **Software Testing Internship at <a href="https://brightskie
 - Implemented **Page Object Model (POM)** design pattern for maintainable, scalable test architecture
 - Developed comprehensive test coverage with API intercepts and UI validations
 
-*This project demonstrates strategic QA: exploratory testing for discovery, automated regression for efficiency.*
+> [!IMPORTANT]
+> Manual exploratory testing surfaces what automation misses; regression automation enforces it efficiently at scale.
 
 ## 🧱 Architecture & Design
 
