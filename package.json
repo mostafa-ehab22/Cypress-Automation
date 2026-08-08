@@ -4,7 +4,9 @@
   "description": "Software Testing Practice Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "_comment for next line (CI/CD Integration)": "Run Cypress tests in headless mode with Electron browser",
+    "ci:test": "cypress run --headless --browser electron"
   },
   "author": "Mostafa Ehab",
   "license": "ISC",

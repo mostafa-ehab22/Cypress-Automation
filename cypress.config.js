@@ -9,5 +9,12 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     chromeWebSecurity: false,
     watchForFileChanges: false,
+
+    // CI/CD Integration: Video and screenshot settings
+    video: true,
+    videoCompression: 32,
+    videosFolder: "cypress/videos",
+    screenshotOnRunFailure: true,
+    screenshotsFolder: "cypress/screenshots",
   },
 });
