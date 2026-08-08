@@ -144,9 +144,9 @@ This test suite runs through an automated cloud CI pipeline on every push, movin
 
 ### Pipeline Flow
 
-```
-GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + CloudWatch (logs)
-```
+<div align="center">
+  <img src="ci-pipeline.png" alt="Continuous Integration Pipeline Diagram" width="99%"/>
+</div>
 
 ### Build Stages
 
