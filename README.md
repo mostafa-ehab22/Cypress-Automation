@@ -155,7 +155,7 @@ GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + C
 - **Test** → Runs the full Cypress suite headlessly, covering cart flows, checkout, favorites, and API-level intercepts
 - **Package** → Captures and uploads screenshots/videos to S3 before container teardown
 
-### 📦 Artifact Management
+### Artifact Management
 
 - **Screenshots** `.png` <br>
 Captured the instant an assertion fails, useful for catching a missing UI element or an unexpected API error <br>
@@ -164,7 +164,7 @@ Captured the instant an assertion fails, useful for catching a missing UI elemen
 Full headless recording of the entire spec, from first click to last assertion
 
 > [!IMPORTANT]
-Both are archived to S3 automatically, so failures can be reviewed after the fact without needing to reproduce them locally.
+Both are archived to S3 automatically, so failures can be reviewed without reproducing them locally.
 
 ## 💻 Code Highlights
 
