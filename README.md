@@ -157,10 +157,10 @@ GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + C
 
 ### 📦 Artifact Management
 
-**Screenshots** `.png` <br>
+- **Screenshots** `.png` <br>
 Captured the instant an assertion fails, useful for catching a missing UI element or an unexpected API error <br>
 
-**Videos** `.mp4` <br>
+- **Videos** `.mp4` <br>
 Full headless recording of the entire spec, from first click to last assertion
 
 > [!IMPORTANT]
