@@ -135,9 +135,9 @@ Or run headless tests:
 ```
 npx cypress run
 ```
-## ⛅ Continuous Integration Pipeline (AWS CodeBuild & S3)
+## ⛅ Continuous Integration
 
-This test suite runs through an automated cloud CI pipeline on every push, moving execution off local machines and into **AWS CodeBuild**, with **Amazon S3** handling artifact storage for post-run debugging.
+This test suite runs through an automated cloud continuous integration (CI) pipeline on every push, moving execution off local machines and into **AWS CodeBuild**, with **Amazon S3** handling artifact storage for post-run debugging.
 
 > [!IMPORTANT]
 > CodeBuild containers are ephemeral, wiped clean after each run. Artifacts must reach S3 before teardown.
