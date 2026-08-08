@@ -142,10 +142,8 @@ This test suite runs through an automated cloud CI pipeline on every push, movin
 > [!IMPORTANT]
 > CodeBuild containers are ephemeral, wiped clean after each run. Artifacts must reach S3 before teardown, or failures leave nothing to debug.
 
-### Pipeline Flow
-
 <div align="center">
-  <img src="ci-pipeline.png" alt="Continuous Integration Pipeline Diagram" width="99%"/>
+  <img src="ci-pipeline.png" alt="Continuous Integration Pipeline Diagram" width="80%"/>
 </div>
 
 ### Build Stages
