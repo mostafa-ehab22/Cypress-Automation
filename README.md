@@ -135,6 +135,33 @@ Or run headless tests:
 ```
 npx cypress run
 ```
+## ☁️ Continuous Integration (AWS CodeBuild & S3)
+
+This test suite runs through an automated cloud pipeline on every push, shifting execution from local machines to a serverless CI/CD flow powered by **AWS CodeBuild**, with **Amazon S3** handling artifact storage.
+
+### How It Works
+
+```
+GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + CloudWatch (logs)
+```
+
+**1. Install:** Sets up the Ubuntu build container: OS-level rendering dependencies (`xvfb`, `libgtk`) for headless browser support, plus `npm ci` for a clean dependency install.
+
+**2. Verify:** Confirms the Cypress binary is installed and ready before running anything.
+
+**3. Test:** Runs the full Cypress suite headlessly against the target app, covering cart flows, checkout, favorites, and API-level intercepts.
+
+**4. Package:** Captures screenshots and videos as build artifacts, then uploads them to S3 before the build container is destroyed.
+
+### Why Artifacts Matter
+
+CodeBuild containers are ephemeral — they're wiped clean after every run. Without persisting test evidence somewhere durable, a failed test in the cloud would leave nothing to debug. This pipeline captures:
+
+- **Screenshots** — a snapshot the moment an assertion fails, useful for catching things like a missing UI element or an unexpected API error
+- **Videos** — a full recording of the test run, from first click to last assertion
+
+> [!IMPORTANT]
+Both are archived to S3 automatically, so failures can be reviewed after the fact without needing to reproduce them locally.
 
 ## 💻 Code Highlights
 
