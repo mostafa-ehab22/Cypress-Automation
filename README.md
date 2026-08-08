@@ -161,7 +161,7 @@ Captured the instant an assertion fails, useful for catching a missing UI elemen
 - **Videos** `.mp4` <br>
 Full headless recording of the entire spec, from first click to last assertion
 
-> [!IMPORTANT]
+> [!NOTE]
 Both are archived to S3 automatically, so failures can be reviewed without reproducing them locally.
 
 ## 💻 Code Highlights
