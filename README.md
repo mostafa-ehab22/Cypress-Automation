@@ -135,30 +135,31 @@ Or run headless tests:
 ```
 npx cypress run
 ```
-## ☁️ Continuous Integration (AWS CodeBuild & S3)
+## ⛅ Continuous Integration Pipeline (AWS CodeBuild & S3)
 
-This test suite runs through an automated cloud pipeline on every push, shifting execution from local machines to a serverless CI/CD flow powered by **AWS CodeBuild**, with **Amazon S3** handling artifact storage.
+This test suite runs through an automated cloud CI pipeline on every push, moving execution off local machines and into **AWS CodeBuild**, with **Amazon S3** handling artifact storage for post-run debugging.
 
-### How It Works
+> [!IMPORTANT]
+> CodeBuild containers are ephemeral, wiped clean after each run. Artifacts must reach S3 before teardown, or failures leave nothing to debug.
+
+### Pipeline Flow
 
 ```
 GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + CloudWatch (logs)
 ```
 
-**1. Install:** Sets up the Ubuntu build container: OS-level rendering dependencies (`xvfb`, `libgtk`) for headless browser support, plus `npm ci` for a clean dependency install.
+### Build Stages
 
-**2. Verify:** Confirms the Cypress binary is installed and ready before running anything.
+- **Install** → Provisions the Ubuntu build container: OS-level rendering dependencies (`xvfb`, `libgtk`) for headless browser support, plus `npm ci` for a clean, reproducible dependency install
+- **Verify** → Confirms the Cypress binary is installed and ready before any test runs
+- **Test** → Runs the full Cypress suite headlessly, covering cart flows, checkout, favorites, and API-level intercepts
+- **Package** → Captures screenshots and videos as build artifacts, then uploads them to S3 before the container is destroyed
 
-**3. Test:** Runs the full Cypress suite headlessly against the target app, covering cart flows, checkout, favorites, and API-level intercepts.
+### 📦 Artifact Management
 
-**4. Package:** Captures screenshots and videos as build artifacts, then uploads them to S3 before the build container is destroyed.
-
-### Why Artifacts Matter
-
-CodeBuild containers are ephemeral — they're wiped clean after every run. Without persisting test evidence somewhere durable, a failed test in the cloud would leave nothing to debug. This pipeline captures:
-
-- **Screenshots** — a snapshot the moment an assertion fails, useful for catching things like a missing UI element or an unexpected API error
-- **Videos** — a full recording of the test run, from first click to last assertion
+- ✅ **Screenshots** *(.png)* — Captured the instant an assertion fails, useful for catching a missing UI element or an unexpected API error
+- ✅ **Videos** *(.mp4)* — Full headless recording of the entire spec, from first click to last assertion
+- ✅ **S3 Archiving** — Both are pushed to a dedicated Amazon S3 bucket automatically, so failures can be reviewed after the fact without reproducing them locally
 
 > [!IMPORTANT]
 Both are archived to S3 automatically, so failures can be reviewed after the fact without needing to reproduce them locally.
