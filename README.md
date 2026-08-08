@@ -140,7 +140,7 @@ npx cypress run
 This test suite runs through an automated cloud CI pipeline on every push, moving execution off local machines and into **AWS CodeBuild**, with **Amazon S3** handling artifact storage for post-run debugging.
 
 > [!IMPORTANT]
-> CodeBuild containers are ephemeral, wiped clean after each run. Artifacts must reach S3 before teardown, or failures leave nothing to debug.
+> CodeBuild containers are ephemeral, wiped clean after each run. Artifacts must reach S3 before teardown.
 
 <div align="center">
   <img src="ci-pipeline.png" alt="Continuous Integration Pipeline Diagram" width="80%"/>
