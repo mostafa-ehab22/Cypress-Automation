@@ -153,7 +153,7 @@ GitHub Push → AWS CodeBuild → Cypress Test Run → Amazon S3 (artifacts) + C
 - **Install** → Provisions the Ubuntu build container: OS-level rendering dependencies (`xvfb`, `libgtk`) for headless browser support, plus `npm ci` for a clean, reproducible dependency install
 - **Verify** → Confirms the Cypress binary is installed and ready before any test runs
 - **Test** → Runs the full Cypress suite headlessly, covering cart flows, checkout, favorites, and API-level intercepts
-- **Package** → Captures screenshots and videos as artifacts, then uploads them to S3 before the container is destroyed
+- **Package** → Captures and uploads screenshots/videos to S3 before container teardown
 
 ### 📦 Artifact Management
 
