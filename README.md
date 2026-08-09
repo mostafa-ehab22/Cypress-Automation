@@ -13,6 +13,8 @@
 <br>
 End-to-end automated test suite for e-commerce applications built with **Cypress** and the **Page Object Model (POM)** design pattern. Covers critical user journeys including cart management, favorites, checkout flows, and API validations with comprehensive assertions. <br>
 
+Runs through an automated AWS CodeBuild CI pipeline on every push, with Amazon S3 archiving test artifacts.
+
 ## 🎓 Internship Context
 Developed during my **Software Testing Internship at <a href="https://brightskiesinc.com/" target="_blank" alt="Brightskies Website">Brightskies</a>  (Summer 2025)**, where I gained hands-on experience in both manual and automated testing methodologies:
 
