@@ -9,7 +9,6 @@
 
 ## 🎯 Project Overview
 ![Cypress](https://img.shields.io/badge/Cypress-1F5C38.svg?logo=cypress&logoColor=white)
-![Cypress](https://img.shields.io/badge/Cypress-white.svg?logo=cypress)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black)
 ![AWS](https://img.shields.io/badge/⛅_AWS-232F3E)
 <br>
