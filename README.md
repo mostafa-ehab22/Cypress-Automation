@@ -16,7 +16,7 @@ End-to-end automated test suite for e-commerce applications built with **Cypress
 
 Runs through an automated AWS CodeBuild CI pipeline on every push, with Amazon S3 archiving test artifacts.
 
-## 🎓 Internship Context
+## 🎓 Brightskies Internship Context
 Developed during my **Software Testing Internship at <a href="https://brightskiesinc.com/" target="_blank" alt="Brightskies Website">Brightskies</a>  (Summer 2025)**, where I gained hands-on experience in both manual and automated testing methodologies:
 
 ### 📝 **Manual Testing**  
